@@ -23,5 +23,6 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    {ok, { {one_for_one, 5, 10}, []} }.
+    {ok, { {one_for_one, 5, 10}, [{appchat_srv, {appchat_srv, start_link, [<<"case">>]},
+                permanent, brutal_kill, worker, [aapchat_srv]}]} }.
 
